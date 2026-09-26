@@ -12,7 +12,6 @@ https://docs.djangoproject.com/en/6.1/ref/settings/
 import os
 from pathlib import Path
 
-from django.conf.global_settings import STATICFILES_DIRS
 from dotenv import load_dotenv
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -131,9 +130,10 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/6.1/howto/static-files/
 
 STATIC_URL = 'static/'
-STATICFILESDIRS = (
-    BASE_DIR / 'static',
-)
+STATICFILES_DIRS = [
+    os.path.join(BASE_DIR, 'static'),
+    # BASE_DIR / "static",
+]
 
 
 # Email
